@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Chat + Video App Design System */
+
+@layer base {
+  :root {
+    /* App Brand Colors - Exact Values Required */
+    --sky-blue: #14ddda;
+    --butter-cream: #fffbe8;
+    --charcoal-green: #2b3738;
+    --neon-red: #ff4655;
+    --earth-brown: #5e3933;
+    --ocean-blue: #3291ab;
+    --toxic-mint: #03fcad;
+
+    /* Theme Colors in HSL */
+    --background: 186 25% 19%; /* charcoal-green */
+    --foreground: 48 83% 96%; /* butter-cream */
+    
+    --card: 186 25% 21%;
+    --card-foreground: 48 83% 96%;
+    
+    --popover: 186 25% 19%;
+    --popover-foreground: 48 83% 96%;
+    
+    --primary: 180 84% 46%; /* sky-blue */
+    --primary-foreground: 186 25% 19%;
+    
+    --secondary: 163 97% 50%; /* toxic-mint */
+    --secondary-foreground: 186 25% 19%;
+    
+    --muted: 186 25% 25%;
+    --muted-foreground: 48 23% 76%;
+    
+    --accent: 354 100% 64%; /* neon-red */
+    --accent-foreground: 48 83% 96%;
+    
+    --destructive: 354 100% 64%; /* neon-red */
+    --destructive-foreground: 48 83% 96%;
+    
+    --border: 186 25% 30%;
+    --input: 186 25% 25%;
+    --ring: 180 84% 46%;
+
+    --radius: 0.5rem;
+
+    /* Glassmorphism and Effects */
+    --glass-bg: rgba(43, 55, 56, 0.8);
+    --glass-border: rgba(20, 221, 218, 0.2);
+    --glow-primary: 0 0 20px rgba(20, 221, 218, 0.3);
+    --glow-accent: 0 0 20px rgba(255, 70, 85, 0.3);
+
+    /* Sidebar Variables */
+    --sidebar-background: 186 25% 19%;
+    --sidebar-foreground: 48 83% 96%;
+    --sidebar-primary: 180 84% 46%;
+    --sidebar-primary-foreground: 186 25% 19%;
+    --sidebar-accent: 186 25% 25%;
+    --sidebar-accent-foreground: 48 83% 96%;
+    --sidebar-border: 186 25% 30%;
+    --sidebar-ring: 180 84% 46%;
+  }
+
+  .dark {
+    --background: 186 25% 15%;
+    --foreground: 48 83% 96%;
+
+    --card: 186 25% 17%;
+    --card-foreground: 48 83% 96%;
+
+    --popover: 186 25% 15%;
+    --popover-foreground: 48 83% 96%;
+
+    --primary: 180 84% 46%;
+    --primary-foreground: 186 25% 15%;
+
+    --secondary: 163 97% 50%;
+    --secondary-foreground: 186 25% 15%;
+
+    --muted: 186 25% 20%;
+    --muted-foreground: 48 23% 70%;
+
+    --accent: 354 100% 64%;
+    --accent-foreground: 48 83% 96%;
+
+    --destructive: 354 100% 64%;
+    --destructive-foreground: 48 83% 96%;
+
+    --border: 186 25% 25%;
+    --input: 186 25% 20%;
+    --ring: 180 84% 46%;
+
+    --sidebar-background: 186 25% 15%;
+    --sidebar-foreground: 48 83% 96%;
+    --sidebar-primary: 180 84% 46%;
+    --sidebar-primary-foreground: 186 25% 15%;
+    --sidebar-accent: 186 25% 20%;
+    --sidebar-accent-foreground: 48 83% 96%;
+    --sidebar-border: 186 25% 25%;
+    --sidebar-ring: 180 84% 46%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+  /* Ensure scroll works properly on all pages */
+  body {
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  #root {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-card/80 backdrop-blur-md border border-primary/20 rounded-lg;
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glass-button {
+    @apply bg-primary/10 backdrop-blur-sm border border-primary/30 hover:bg-primary/20 transition-all duration-200;
+  }
+  
+  .neon-button {
+    @apply bg-accent text-accent-foreground hover:bg-accent/80 transition-all duration-200 shadow-lg;
+    box-shadow: var(--glow-accent);
+  }
+  
+  .butter-card {
+    @apply bg-yellow-50 text-charcoal-green border border-yellow-100 rounded-lg;
+  }
+  
+  .message-bubble {
+    @apply rounded-2xl px-4 py-2 max-w-xs backdrop-blur-sm;
+  }
+  
+  .message-own {
+    @apply bg-primary text-primary-foreground ml-auto;
+  }
+  
+  .message-other {
+    @apply bg-card border border-border;
+  }
+}
